@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Recents</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" type="text/css" />
+
+    <link
+      href="https://assets.website-files.com/62aee78456e4207786ac4d18/62b0fad1a8cf6a4c26b3cb5e_Faivcon%2032.svg"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link
+      href="https://assets.website-files.com/62aee78456e4207786ac4d18/62b0fad95898ce119a80c68e_Faivcon%20256.svg"
+      rel="apple-touch-icon"
+    />
+  </head>
+
+  <body>
+    <div data-collapse="small" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease"
+        role="banner" class="nav-bar w-nav">
+        <div class="nav-container w-container">
+            <div class="logo-div">
+                <a href="#" aria-current="page" class="logotext"><b>Anveshak</b></a>
+            </div>
+
+            <nav role="navigation" class="nav-content w-nav-menu">
+                <div class="nav-menu">
+                  <a href="/home" class="nav-link w-nav-link" style="color:#710101;"><b>Home</b></a>
+                  {% comment %} <a href="/recents" class="nav-link w-nav-link">Recents</a> {% endcomment %}
+                  <a href="/recents" class="nav-link w-nav-link">Past History</a>
+                  <a href="/doubts" class="nav-link w-nav-link">Doubt Section</a>
+                  <a href="/notifications" class="nav-link w-nav-link">Notification</a>
+                </div>
+                
+                <div class="nav-cta-button-container">
+                    <a href="#" class="nav-link w-nav-link"><b>Helpline Number  :  XXXXXX8769</b></a>
+                </div>
+            </nav>
+            <div class="menu-button w-nav-button">
+                <img src="https://assets.website-files.com/62aee78456e4207786ac4d18/62aee78456e4200f2eac4d49_Menu%20Icon.svg"
+                    loading="lazy" width="24" alt="" class="menu-icon" />
+            </div>
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+      <div
+        class="section light-color-gradient wf-section"
+        style="padding-top: 3%; width: 100%"
+      >
+        <div class="containers w-container" style="width: 100%; padding: 0px">
+          <div class="text-box _1500px center-align">
+            <div class="container" style="width: 100%">
+              <div class="row">
+                <div class="grid">
+                  <h2
+                    class="heading h2"
+                    style="margin-bottom: 30px; text-align: start"
+                  >
+                    Last Week
+                  </h2>
+                </div>
+                <div class="grid" style="width: 100%; padding: 0%">
+                  {% for feature in features %}
+                  <div
+                    class="card"
+                    style="width: 95%; margin: 0px; padding-left: 5%"
+                  >
+                    <div class="card-body">
+                        <img src='/media/{{feature.image}}'>
+                      <h1
+                        class="card-title"
+                        style="
+                          color: #616161;
+                          font-size: medium;
+                          font-weight: bold;
+                          text-align: start;
+                          margin-top: 2%;
+                          margin-bottom: 0%;
+                        "
+                      >
+                        {{feature.dated}}
+                      </h1>
+                      <h1
+                        class="card-title"
+                        style="
+                          color: #a33434;
+                          font-size: medium;
+                          font-weight: bold;
+                          text-align: left;
+                          margin-top: 1%;
+                          margin-bottom: 0%;
+                        "
+                      >
+                        {{feature.address}}
+                      </h1>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div
+          class="modal-content"
+          style="
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+          "
+        >
+          <span class="close" id="closeBtn">&times;</span>
+          <h1 style="text-align: center; font-size: 200%; font-weight: bolder">
+            Add a Task!
+          </h1>
+          <label for="Email-2" class="form-label">Task Title:</label>
+          <input
+            type="text"
+            class="text-field no-margin w-input"
+            maxlength="256"
+            name="Email-2"
+            data-name="Email 2"
+            placeholder="Enter Task Title"
+            id="Email-2"
+            required=""
+          />
+          <br />
+          <label for="Email-2" class="form-label">Task Description:</label>
+          <input
+            type="text"
+            class="text-field no-margin w-input"
+            maxlength="256"
+            name="Email-2"
+            data-name="Email 2"
+            placeholder="Enter Task Descriptions"
+            id="Email-2"
+            required=""
+          />
+          <br />
+          <label for="Email-2" class="form-label">Category:</label>
+          <select
+            name="dog-names"
+            class="text-field no-margin w-input"
+            id="dog-names"
+            style="
+              padding-top: 0%;
+              padding-bottom: 0%;
+              padding-top: 0%;
+              padding-right: 50%;
+              font-size: 100%;
+            "
+          >
+            <option value="rigatoni">Carpentry</option>
+            <option value="dave">Plumbing</option>
+          </select>
+          <br />
+          <br />
+          <button
+            class="nav-link cta-button1 w-nav-link"
+            style="width: 100%; text-align: center"
+          >
+            Add Task
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
